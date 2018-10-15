@@ -53,7 +53,7 @@ ADD_DEPENDENCIES(gen_lex_token GenServerSource)
 
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/lex_token.h
-  COMMAND gen_lex_token > lex_token.h
+  COMMAND /usr/bin/gen_lex_token > lex_token.h
   DEPENDS gen_lex_token
 )
 
@@ -600,7 +600,7 @@ ADD_EXECUTABLE(gen_lex_hash gen_lex_hash.cc)
 
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/lex_hash.h
-  COMMAND gen_lex_hash > lex_hash.h
+  COMMAND /usr/bin/gen_lex_hash > lex_hash.h
   DEPENDS gen_lex_hash
 )
 

@@ -50,7 +50,7 @@ ENDIF()
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/mysql_fix_privilege_tables_sql.c
   ${CAT_COMMAND}
-  COMMAND comp_sql
+  COMMAND /usr/bin/comp_sql
   mysql_fix_privilege_tables
   mysql_fix_privilege_tables.sql
   mysql_fix_privilege_tables_sql.c
@@ -75,7 +75,7 @@ IF(NOT WITH_PERFSCHEMA_STORAGE_ENGINE)
 
   ADD_CUSTOM_COMMAND(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sql_commands_sys_schema.h
-    COMMAND comp_sql
+    COMMAND /usr/bin/comp_sql
     mysql_sys_schema
     ${CMAKE_CURRENT_BINARY_DIR}/mysql_sys_schema_empty.sql
     sql_commands_sys_schema.h
@@ -86,7 +86,7 @@ IF(NOT WITH_PERFSCHEMA_STORAGE_ENGINE)
 ELSE()
   ADD_CUSTOM_COMMAND(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sql_commands_sys_schema.h
-    COMMAND comp_sql
+    COMMAND /usr/bin/comp_sql
     mysql_sys_schema
     ${CMAKE_CURRENT_SOURCE_DIR}/mysql_sys_schema.sql
     sql_commands_sys_schema.h
@@ -105,7 +105,7 @@ ENDIF()
 
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sql_commands_system_data.h
-  COMMAND comp_sql
+  COMMAND /usr/bin/comp_sql
   mysql_system_data
   ${CMAKE_CURRENT_SOURCE_DIR}/mysql_system_tables_data.sql
   sql_commands_system_data.h
@@ -116,7 +116,7 @@ ADD_CUSTOM_COMMAND(
 
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sql_commands_system_tables.h
-  COMMAND comp_sql
+  COMMAND /usr/bin/comp_sql
   mysql_system_tables
   ${CMAKE_CURRENT_SOURCE_DIR}/mysql_system_tables.sql
   sql_commands_system_tables.h
@@ -127,7 +127,7 @@ ADD_CUSTOM_COMMAND(
 
 ADD_CUSTOM_COMMAND(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sql_commands_help_data.h
-  COMMAND comp_sql
+  COMMAND /usr/bin/comp_sql
   fill_help_tables
   ${CMAKE_CURRENT_SOURCE_DIR}/fill_help_tables.sql
   sql_commands_help_data.h

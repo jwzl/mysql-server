@@ -70,6 +70,7 @@ ENDIF()
 
 # Check to see if we are using LLVM's libc++ rather than e.g. libstd++
 # Can then check HAVE_LLBM_LIBCPP later without including e.g. ciso646.
+IF(NOT CMAKE_CROSSCOMPILING)
 CHECK_CXX_SOURCE_RUNS("
 #include <ciso646>
 int main()
@@ -80,6 +81,7 @@ int main()
   return 1;
 #endif
 }" HAVE_LLVM_LIBCPP)
+ENDIF()
 
 MACRO(DIRNAME IN OUT)
   GET_FILENAME_COMPONENT(${OUT} ${IN} PATH)

@@ -45,7 +45,7 @@ ENDIF()
 
 ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_BINARY_DIR}/include/mysqld_error.h 
                    ${PROJECT_BINARY_DIR}/sql/share/english/errmsg.sys
-                   COMMAND comp_err
+                   COMMAND /usr/bin/comp_err
                     --charset=${PROJECT_SOURCE_DIR}/sql/share/charsets 
                     --out-dir=${PROJECT_BINARY_DIR}/sql/share/
                     --header_file=${PROJECT_BINARY_DIR}/include/mysqld_error.h 

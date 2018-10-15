@@ -183,12 +183,14 @@ if(${HAVE_LIBDL})
     set(LIBDL "dl")
 endif()
 
+IF(NOT CMAKE_CROSSCOMPILING)
 CHECK_CXX_SOURCE_RUNS("
     main()  {
       const char * f = __func__;
       return 0;
     }"
     HAVE_FUNC_IN_CXX)
+ENDIF()
 
 # Define DEBUG_OUTPUT by default (enables runtime "debug" option in memcached)
 # if(HAVE_FUNC_IN_CXX)

@@ -23,6 +23,7 @@ IF(NOT MSVC)
   if(CMAKE_COMPILER_IS_GNUCC AND NOT HAVE_GCC_ATOMIC_BUILTINS)
      set(OLD_FLAGS ${CMAKE_REQUIRED_FLAGS})
      set(CMAKE_REQUIRED_FLAGS "${OLD_FLAGS} -march=pentium")
+     IF(NOT CMAKE_CROSSCOMPILING)
      CHECK_C_SOURCE_RUNS(
          "int main() {
           volatile int foo= -10; 
@@ -42,10 +43,11 @@ IF(NOT MSVC)
         }"
         HAVE_GCC_ATOMICS_WITH_ARCH_FLAG
       )
+      ENDIF()
       set(CMAKE_REQUIRED_FLAGS ${OLD_FLAGS})
   endif()
 
-
+IF(NOT CMAKE_CROSSCOMPILING)
   CHECK_C_SOURCE_RUNS(
     "#include <libkern/OSAtomic.h>
      int main() {
@@ -65,6 +67,7 @@ IF(NOT MSVC)
      }"
     HAVE_SOLARIS_ATOMICS
   )
+ENDIF()
 ENDIF()
 
 IF(HAVE_GCC_ATOMICS_WITH_ARCH_FLAG)

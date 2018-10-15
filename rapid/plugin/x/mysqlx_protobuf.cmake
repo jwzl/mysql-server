@@ -56,7 +56,7 @@ FUNCTION(MYSQLX_PROTOBUF_GENERATE_CPP SRCS HDRS SRCS_LITE HDRS_LITE)
     ADD_CUSTOM_COMMAND(
       OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/generated/protobuf_lite/${FIL_WE}.pb.cc"
              "${CMAKE_CURRENT_BINARY_DIR}/generated/protobuf_lite/${FIL_WE}.pb.h"
-      COMMAND ${PROTOBUF_PROTOC_EXECUTABLE}
+      COMMAND /usr/bin/${PROTOBUF_PROTOC_EXECUTABLE}
       ARGS --cpp_out "${CMAKE_CURRENT_BINARY_DIR}/generated/protobuf_lite"
            -I "${CMAKE_CURRENT_BINARY_DIR}/generated/protobuf_lite"
            "${CMAKE_CURRENT_BINARY_DIR}/generated/protobuf_lite/${FIL_WE}.proto"
